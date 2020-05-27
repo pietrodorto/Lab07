@@ -22,7 +22,7 @@ public class Model {
 		
 		this.result = new ArrayList<PowerOutages>();
 		
-		
+		recursive()
 		
 		return result;
 	}
@@ -34,6 +34,8 @@ public class Model {
 		 * differenza tra anno più recente e anno più vecchio > X
 		 * Ore disservizio totale > Y
 		 */
+		
+		if()
 		
 		//caso intermedio
 		
@@ -63,17 +65,25 @@ public class Model {
 					
 					diff = ultimo - primo + 1;
 					
+					if(diff>x){
+						
+					return false;
+					
+					}
 				}
-				
-				if(diff<x){
-					return true;
-				}
-				return false;
+	
+				return true;
 	}
 	
 	public boolean checkHours(List<PowerOutages> parziale, int y) {
 		
-			long totore.getOreDisservizioTotale(parziale);
+			long totore = getOreDisservizioTot(parziale);
+			
+			if(totore>y) {
+				return false;
+			}
+			
+			return true;
 	}
 	
 	
