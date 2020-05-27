@@ -54,19 +54,26 @@ public class Model {
 	
 	public boolean checkYears(int x , List<PowerOutages> parziale) {
 		
-		List<PowerOutages> parzialetemp = parziale.sort(c);
-		
+		int diff = 0;
+				
+				if(parziale.size() > 1) {
+					
+					int primo = parziale.get(0).getYear();
+					int ultimo = parziale.get(parziale.size() - 1).getYear();
+					
+					diff = ultimo - primo + 1;
+					
+				}
+				
+				if(diff<x){
+					return true;
+				}
+				return false;
 	}
 	
 	public boolean checkHours(List<PowerOutages> parziale, int y) {
 		
-		long totore = 0;
-				
-				for (PowerOutages po : parziale) {
-					
-					totore =+ po.getDurataguasto();
-				}
-				
+			long totore.getOreDisservizioTotale(parziale);
 	}
 	
 	
