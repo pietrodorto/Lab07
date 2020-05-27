@@ -1,5 +1,6 @@
 package it.polito.tdp.poweroutages.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class PowerOutages {
@@ -8,13 +9,13 @@ public class PowerOutages {
 	int area_id;
 	int nerc_id;
 	int customers_affected;
-	Date data_event_began;
-	Date data_event_finished;
+	LocalDateTime data_event_began;
+	LocalDateTime data_event_finished;
 	
 	
 	
 	public PowerOutages(int id, int event_type_id, int area_id, int nerc_id, int customers_affected,
-			Date data_event_began, Date data_event_finished) {
+			LocalDateTime data_event_began, LocalDateTime data_event_finished) {
 		super();
 		this.id = id;
 		this.event_type_id = event_type_id;
@@ -23,6 +24,12 @@ public class PowerOutages {
 		this.customers_affected = customers_affected;
 		this.data_event_began = data_event_began;
 		this.data_event_finished = data_event_finished;
+		
+		int durataguasto;
+		
+		durataguasto = LocalDateTime.
+		
+		int year = data_event_began.getYear();
 	}
 	public int getId() {
 		return id;
