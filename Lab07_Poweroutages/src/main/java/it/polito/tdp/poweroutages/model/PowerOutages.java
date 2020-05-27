@@ -1,7 +1,8 @@
 package it.polito.tdp.poweroutages.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.temporal.ChronoUnit;
+
 
 public class PowerOutages {
 	int id;
@@ -11,8 +12,8 @@ public class PowerOutages {
 	int customers_affected;
 	LocalDateTime data_event_began;
 	LocalDateTime data_event_finished;
-	
-	
+	long durataguasto;
+	int year;
 	
 	public PowerOutages(int id, int event_type_id, int area_id, int nerc_id, int customers_affected,
 			LocalDateTime data_event_began, LocalDateTime data_event_finished) {
@@ -25,11 +26,9 @@ public class PowerOutages {
 		this.data_event_began = data_event_began;
 		this.data_event_finished = data_event_finished;
 		
-		int durataguasto;
+		this.durataguasto = data_event_began.until(data_event_finished, ChronoUnit.HOURS);
 		
-		durataguasto = LocalDateTime.
-		
-		int year = data_event_began.getYear();
+		this.year = data_event_began.getYear();
 	}
 	public int getId() {
 		return id;
@@ -61,19 +60,33 @@ public class PowerOutages {
 	public void setCustomers_affected(int customers_affected) {
 		this.customers_affected = customers_affected;
 	}
-	public Date getData_event_began() {
+	
+	
+	
+	public LocalDateTime getData_event_began() {
 		return data_event_began;
 	}
-	public void setData_event_began(Date data_event_began) {
+	public void setData_event_began(LocalDateTime data_event_began) {
 		this.data_event_began = data_event_began;
 	}
-	public Date getData_event_finished() {
+	public LocalDateTime getData_event_finished() {
 		return data_event_finished;
 	}
-	public void setData_event_finished(Date data_event_finished) {
+	public void setData_event_finished(LocalDateTime data_event_finished) {
 		this.data_event_finished = data_event_finished;
 	}
-	
+	public long getDurataguasto() {
+		return durataguasto;
+	}
+	public void setDurataguasto(long durataguasto) {
+		this.durataguasto = durataguasto;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

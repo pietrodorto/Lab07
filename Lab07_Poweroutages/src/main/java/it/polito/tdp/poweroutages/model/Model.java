@@ -18,7 +18,7 @@ public class Model {
 	}
 
 	
-	public List<PowerOutages> getWorstCase(int years , int hours, Nerc nerc){
+	public List<PowerOutages> getWorstCase(int years , int x, Nerc y){
 		
 		this.result = new ArrayList<PowerOutages>();
 		
@@ -41,15 +41,44 @@ public class Model {
 		
 	}
 	
-	public int getOreDisservizioTot(List<PowerOutages> parziale) {
-	
+	public long getOreDisservizioTot(List<PowerOutages> parziale) {
+		
+		long totore = 0;
+		
+		for (PowerOutages po : parziale) {
+			
+			totore =+ po.getDurataguasto();
+		}
+		return totore;
 	}
 	
-	public int controlloAnni() {
+	public boolean checkYears(int x , List<PowerOutages> parziale) {
+		
+		List<PowerOutages> parzialetemp = parziale.sort(c);
 		
 	}
 	
-	public int getCustomersAffectedTot() {
+	public boolean checkHours(List<PowerOutages> parziale, int y) {
+		
+		long totore = 0;
+				
+				for (PowerOutages po : parziale) {
+					
+					totore =+ po.getDurataguasto();
+				}
+				
+	}
+	
+	
+	public int getCustomersAffectedTot(List<PowerOutages> parziale) {
+		
+	int totcustomers = 0;
+		
+		for (PowerOutages po : parziale) {
+			
+			totcustomers =+ po.getCustomers_affected();
+		}
+		return totcustomers;
 		
 	}
 }
