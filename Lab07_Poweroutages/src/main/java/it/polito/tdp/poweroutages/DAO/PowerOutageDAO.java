@@ -47,7 +47,7 @@ public class PowerOutageDAO {
 			ResultSet res = st.executeQuery();
 
 			while (res.next()) {
-				PowerOutages po = new PowerOutages(res.getInt("id"),res.getInt("event_type_id"),res.getInt("area_id"),res.getInt("nerc_id"),res.getInt("customers_affected"), res.getDate("date_event_began").toLocalDate().ti, res.getDate("date_event_finished").toLocalDate());
+				PowerOutages po = new PowerOutages(res.getInt("id"),res.getInt("event_type_id"),res.getInt("area_id"),res.getInt("nerc_id"),res.getInt("customers_affected"), res.getTimestamp("date_event_began").toLocalDateTime(), res.getTimestamp("date_event_finished").toLocalDateTime());
 				poweroutagesList.add(po);
 			}
 
